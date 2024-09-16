@@ -1,0 +1,22 @@
+<!-- templates/post_edit.html -->
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h1>Edit post</h1>
+
+{% if user.is_authenticated %}
+
+  <form action="" method="post">{% csrf_token %}
+  {{ form|crispy }}
+  <button class="btn btn-info ml-2" type="submit">Update</button>
+
+</form>
+
+{% else %}
+  Please <a href="{% url 'login' %}">Login</a> to continue.  
+{% endif %}
+
+{% endblock content %}

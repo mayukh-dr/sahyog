@@ -1,0 +1,18 @@
+<!-- templates/post_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class='post-entry'>
+		<h2>Flight Number : <a href=''>{{ post.flight_number }}</a></h2>
+		<h2>From : {{ post.origin }}</h2>
+		<h2>To : {{ post.destination }}</h2>
+		<h2>Travel Date: {{ post.travel_date }}</h2>
+		<h2>Name : {{ post.traveler }}</h2>
+		<h2>Message : {{ post.message }}</h2>
+	</div>
+	{% if user.is_authenticated %}	
+	<a href="{% url 'post_edit' post.pk %}">Edit Sahyog Request</a>
+	<a href="{% url 'post_delete' post.pk %}">Remove a Sahyog Request</a>
+	{% endif %}
+	
+{% endblock content %}

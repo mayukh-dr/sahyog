@@ -1,11 +1,45 @@
-{% extends '_base.html' %}
+<!-- templates/home.html -->
+{% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home page{% endblock title %}
-
 {% block content %}
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="DjangoX logo"/>
-  <p class="lead">A Django starter project with batteries.</p>
+
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Sahyog!</h1>
+  <p class="lead">A Social Travel experience. Add a bit of conversation to your travel.</p>
+  <hr class="my-4">
+  <p>Sahyog connects solo travelers to connect with each other while enroute.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="{% url 'home' %}" role="button">View All Open Requests</a>
+  </p>
 </div>
+
+
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators"> 
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner"  style=" width:100%; height: 600px !important;">
+    <div class="carousel-item active">
+      <img src="{% static '1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static '2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static '3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  </div>
+	
 {% endblock content %}

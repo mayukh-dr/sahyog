@@ -11,27 +11,26 @@ from .models import Post
 # Create your views here.
 class HomePageView(TemplateView):
     template_name = 'home.html'
-    
+
 class PostListView(ListView):
     model = Post
     template_name = 'post_list.html'
     context_object_name = 'all_post_list'
-    
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
     context_object_name = 'post'
-    
+
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_new.html'
     fields =('flight_number','travel_date','origin','destination','message')
     login_url = 'login'
-    
     def form_valid(self, form):
         form.instance.traveler = self.request.user
         return super().form_valid(form)
-    
+
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post 
     template_name = 'post_edit.html'
